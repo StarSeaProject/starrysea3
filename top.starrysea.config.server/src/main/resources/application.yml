@@ -1,0 +1,31 @@
+server:
+  port: 8800
+spring:
+  application:
+    name: starrysea-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/StarSeaProject/ss_config
+          username: kuma_loveliver@163.com
+          password: fsxjl2017
+          clone-on-start: true
+encrypt: 
+  key-store: 
+    location: classpath:/server.jks
+    password: starrysea
+    alias: starrysea
+    secret: starrysea
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+  instance:
+    prefer-ip-address: true
+security:
+  basic:
+    enabled: true
+  user:
+    name: developer
+    password: developer

@@ -1,0 +1,45 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.10.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'StarrySea2'
+version = '2.0.0'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web'){
+		exclude module: "spring-boot-starter-tomcat"
+	}
+	compile(
+		'org.springframework.boot:spring-boot-starter-jdbc',
+		'org.springframework.boot:spring-boot-starter-aop',
+		'org.springframework.boot:spring-boot-starter-thymeleaf',
+		'org.springframework.boot:spring-boot-starter-jetty',
+		'org.springframework.boot:spring-boot-devtools',
+		'org.springframework.mobile:spring-mobile-device',
+		'org.springframework.boot:spring-boot-starter-actuator'
+	)
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-eureka', version: '1.4.3.RELEASE'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-feign', version: '1.4.3.RELEASE'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '1.4.2.RELEASE'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-hystrix', version: '1.4.3.RELEASE'
+	runtime('mysql:mysql-connector-java')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}

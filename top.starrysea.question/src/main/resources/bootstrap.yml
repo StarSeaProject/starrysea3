@@ -1,0 +1,18 @@
+spring: 
+  application:
+    name: starrysea-question
+  cloud:
+    config:
+      profile: dev
+      label: null
+      discovery:
+        enabled: true
+        service-id: starrysea-config
+      username: developer
+      password: developer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+  instance:
+    prefer-ip-address: true
